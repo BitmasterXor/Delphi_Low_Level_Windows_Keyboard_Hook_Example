@@ -28,12 +28,12 @@ This Delphi VCL application provides a sophisticated keyboard monitoring system 
 
 1. 🎯 **Start Hook:** Click the "Start Hook" button to begin keyboard monitoring
 2. 📊 **View Output:**
-   - Left panel shows technical logs with timestamps
-   - Right panel displays real-time typing simulation
+   - TOP panel shows technical logs with timestamps
+   - BOTTOM panel displays real-time typing simulation
 3. 🛑 **Stop Hook:** Click "Stop Hook" to end monitoring
 4. 📋 **Window Context:** Active window titles are automatically tracked and displayed
 
-**Note:** Ensure you have appropriate authorization before using this tool in any environment.
+**Note:** Ensure you have appropriate authorization before using this tool in any environment. (Stay Legal Guys!)
 
 ## 🔒 Technical Implementation
 
