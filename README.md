@@ -4,7 +4,7 @@ This Delphi VCL application provides a sophisticated keyboard monitoring system 
 
 <!-- Replace 'Preview.png' with the path to your actual image file -->
 <p align="center">
-  <img src="Preview.png" alt="Screenshot of the Delphi Keyboard Hook" style="max-width:100%; height:auto;">
+  <img src="preview.png" alt="Screenshot of the Delphi Keyboard Hook" style="max-width:100%; height:auto;">
 </p>
 
 ## 🛠️ Features
