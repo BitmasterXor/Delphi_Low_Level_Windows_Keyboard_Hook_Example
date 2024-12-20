@@ -207,7 +207,7 @@ begin
         ComboKeys := ComboKeys + '[WIN] + ';
 
       // Log technical details to Memo1
-      Memo1.Lines.Add('[' + FormatDateTime('hh:nn:ss.zzz', Now) + '] ' +
+      Memo1.Lines.Add('[' + FormatDateTime('dd/mm/yyyy hh:nn ampm', Now) + '] ' +
         ComboKeys + GetKeyName(Hook^.vkCode));
 
       // Handle typing simulation in Memo2
