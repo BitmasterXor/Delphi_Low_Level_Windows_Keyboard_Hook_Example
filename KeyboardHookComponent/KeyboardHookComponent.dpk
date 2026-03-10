@@ -1,0 +1,39 @@
+package KeyboardHookComponent;
+
+{*******************************************************************************
+  TKeyboardHook Design-Time Package
+  ==================================
+  Author  : BitmasterXor
+  Version : 1.0
+
+  How to install this package in Delphi IDE:
+  ------------------------------------------
+  1. Open Delphi IDE
+  2. Menu -> Component -> Install Packages...
+  3. Click "Add..."
+  4. Browse to and select this .dpk file
+     (Or: File -> Open -> select this .dpk, then in Project Manager
+      right-click the package -> Install)
+  5. After installation, find [TKeyboardHook] on the "BitmasterXor" palette tab
+
+  Package dependencies:
+    rtl  - Delphi Runtime Library (TComponent, etc.)
+    vcl  - Visual Component Library (design-time registration)
+*******************************************************************************}
+
+{$R *.res}
+
+{ Design-time only: prevents this package from being implicitly rebuilt }
+{$IMPLICITBUILD OFF}
+
+{ Package description (shown in IDE package manager) }
+{$DESCRIPTION 'TKeyboardHook - Low Level Keyboard Hook Component by BitmasterXor'}
+
+requires
+  rtl,
+  vcl;
+
+contains
+  uKeyboardHook in 'uKeyboardHook.pas';
+
+end.

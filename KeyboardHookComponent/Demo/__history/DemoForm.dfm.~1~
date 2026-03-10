@@ -1,0 +1,169 @@
+object frmDemo: TfrmDemo
+  Left = 0
+  Top = 0
+  Caption = 'TKeyboardHook Component Demo  -  by BitmasterXor'
+  ClientHeight = 600
+  ClientWidth = 720
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 17
+  object pnlToolbar: TPanel
+    Left = 0
+    Top = 0
+    Width = 720
+    Height = 54
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object btnStart: TButton
+      Left = 8
+      Top = 11
+      Width = 110
+      Height = 32
+      Caption = 'Start Hook'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnStartClick
+    end
+    object btnStop: TButton
+      Left = 126
+      Top = 11
+      Width = 110
+      Height = 32
+      Caption = 'Stop Hook'
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnStopClick
+    end
+    object btnClearLog: TButton
+      Left = 254
+      Top = 11
+      Width = 100
+      Height = 32
+      Caption = 'Clear Log'
+      TabOrder = 2
+      OnClick = btnClearLogClick
+    end
+    object btnClearTyping: TButton
+      Left = 362
+      Top = 11
+      Width = 110
+      Height = 32
+      Caption = 'Clear Typing'
+      TabOrder = 3
+      OnClick = btnClearTypingClick
+    end
+    object shpIndicator: TShape
+      Left = 490
+      Top = 18
+      Width = 18
+      Height = 18
+      Brush.Color = clRed
+      Pen.Color = clGray
+      Shape = stCircle
+    end
+    object lblStatus: TLabel
+      Left = 514
+      Top = 18
+      Width = 194
+      Height = 17
+      AutoSize = False
+      Caption = 'Status: Idle'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGrayText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsItalic]
+      ParentFont = False
+    end
+  end
+  object grpKeyLog: TGroupBox
+    Left = 0
+    Top = 54
+    Width = 720
+    Height = 280
+    Caption = '  Key Log  '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    object mmoKeyLog: TMemo
+      Left = 4
+      Top = 22
+      Width = 712
+      Height = 254
+      Align = alClient
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Consolas'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      ScrollBars = ssBoth
+      TabOrder = 0
+      WordWrap = False
+    end
+  end
+  object grpTyping: TGroupBox
+    Left = 0
+    Top = 334
+    Width = 720
+    Height = 266
+    Caption = '  Simulated Typing  (reconstructed from hook events)  '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    object mmoTyping: TMemo
+      Left = 4
+      Top = 22
+      Width = 712
+      Height = 240
+      Align = alClient
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      ScrollBars = ssBoth
+      TabOrder = 0
+    end
+  end
+  object KeyboardHook1: TKeyboardHook
+    Active = False
+    TrackWindowChanges = True
+    OnKeyDown = KeyboardHook1KeyDown
+    OnKeyUp = KeyboardHook1KeyUp
+    OnWindowChange = KeyboardHook1WindowChange
+    Left = 40
+    Top = 568
+  end
+end
