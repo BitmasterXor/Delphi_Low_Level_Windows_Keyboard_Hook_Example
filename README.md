@@ -1,58 +1,97 @@
-# 🎯 Delphi Low Level Keyboard Hook
+# Delphi Low Level Keyboard Hook
 
-This Delphi VCL application provides a sophisticated keyboard monitoring system with dual output modes: technical logging and real-time typing simulation. The application maintains full window context awareness and handles all keyboard events with precise timing and detailed event information. (And yes, it properly cleans up after itself by removing the hook when closed, so no worries about lingering keyboard hooks!)
+Delphi project showcasing low-level keyboard capture on Windows in two complete forms:
 
-<!-- Replace 'Preview.png' with the path to your actual image file -->
+1. Standalone VCL source application and demo UI.
+2. Reusable VCL drag-and-drop component (`TKeyboardHook`) with its own demo project.
+
+Both implementations use `WH_KEYBOARD_LL`, include window-context tracking, and clean up hooks correctly on shutdown.
+
 <p align="center">
   <img src="preview.png" alt="Screenshot of the Delphi Keyboard Hook" style="max-width:100%; height:auto;">
 </p>
 
-## 🛠️ Features
+## What Is Included
 
-- 🎮 **Dual Output Modes:** 
-  - Technical logging with timestamps and key combinations
-  - Real-time typing simulation with window tracking
-- 🖥️ **Window Context Awareness:** Automatically tracks and displays active window titles
-- ⌨️ **Complete Key Coverage:** Handles all keyboard events including modifiers (Ctrl, Alt, Shift, Win)
-- 🕒 **Precise Timing:** Millisecond-accurate event timestamps
-- 📱 **Clean GUI:** Easy-to-use interface with dual display panels
+1. Original source app (manual hook control)
+Path: `keyboardhook.dpr`, `Unit1.pas`, `Unit1.dfm`
+2. Original app demo assets
+Path: `preview.png`, `Images and Media/`
+3. New installable VCL component package
+Path: `KeyboardHookComponent/KeyboardHookComponent.dpk`
+4. Component source unit
+Path: `KeyboardHookComponent/uKeyboardHook.pas`
+5. Component palette icon resource
+Path: `KeyboardHookComponent/uKeyboardHook.dcr`
+6. Dedicated component demo project
+Path: `KeyboardHookComponent/Demo/KBHookDemo.dpr`
 
-## 🔧 Installation
+## Features
 
-1. 📥 **Download & Extract:** Download the project files and extract them to your local machine
-2. 🖥️ **Open Delphi Project:** Open the `.dpr` file in the Delphi IDE
-3. ⚙️ **Compile:** Build the project to generate the executable
-4. 🚀 **Run:** Execute the application to start monitoring
+1. Dual output modes for technical logging and typing simulation.
+2. Active window title tracking with context-aware events.
+3. Full key coverage including Ctrl, Alt, Shift, and Win keys.
+4. Millisecond-level event timing metadata.
+5. Event-driven component API for rapid form integration.
+6. Safe shutdown behavior that removes hooks reliably.
 
-## ⚙️ Usage
+## Quick Start
 
-1. 🎯 **Start Hook:** Click the "Start Hook" button to begin keyboard monitoring
-2. 📊 **View Output:**
-   - TOP panel shows technical logs with timestamps
-   - BOTTOM panel displays real-time typing simulation
-3. 🛑 **Stop Hook:** Click "Stop Hook" to end monitoring
-4. 📋 **Window Context:** Active window titles are automatically tracked and displayed
+### Option A: Run the original standalone app
 
-**Note:** Ensure you have appropriate authorization before using this tool in any environment. (Stay Legal Guys!)
+1. Open `keyboardhook.dpr` in Delphi.
+2. Build and run.
+3. Use Start Hook and Stop Hook in the UI.
 
-## 🔒 Technical Implementation
+### Option B: Install and use the VCL component
 
-- 💻 Uses Windows Low Level Keyboard Hook (WH_KEYBOARD_LL)
-- 🔑 Full virtual key code mapping system
-- 📝 Comprehensive character mapping for special keys
-- 🛡️ Thread-safe event processing
-- 🧹 Automatic hook cleanup on application close
+1. Open `KeyboardHookComponent/KeyboardHookComponent.dproj` (or `.dpk`) in Delphi.
+2. Build the package.
+3. Install the package from the IDE package manager.
+4. Find `TKeyboardHook` on the `BitmasterXor` component palette tab.
+5. Drop it onto a form and set `Active := True` or call `StartHook`.
 
-## 🤝 Contributing
+### Option C: Run the component demo
 
-Contributions are welcome! If you have suggestions or bug fixes, please fork the repository and submit a pull request.
+1. Open `KeyboardHookComponent/Demo/KBHookDemo.dpr`.
+2. Build and run.
+3. Interact with the demo form to test `TKeyboardHook` events.
 
-## 📜 License
+## Component API (TKeyboardHook)
 
-This project is provided "as is" without warranty. Use it at your own risk.
+Published properties:
 
-## 📧 Contact
+1. `Active`
+2. `TrackWindowChanges`
 
-Discord: bitmasterxor
+Published events:
 
-<p align="center">Made with ❤️ by: BitmasterXor, using Delphi RAD Studio</p>
+1. `OnKeyDown`
+2. `OnKeyUp`
+3. `OnWindowChange`
+
+Public methods:
+
+1. `StartHook`
+2. `StopHook`
+
+## Technical Notes
+
+1. Uses Windows `WH_KEYBOARD_LL` hook infrastructure.
+2. Designed for one active component hook instance per process.
+3. Intended for authorized testing, tooling, and accessibility scenarios.
+4. Keep event handlers lightweight to avoid hook timeout removal by Windows.
+
+## Contributing
+
+Pull requests are welcome for bug fixes, performance improvements, and additional demo scenarios.
+
+## License
+
+Provided as-is without warranty. Use at your own risk.
+
+## Contact
+
+Discord: `bitmasterxor`
+
+<p align="center">Built by BitmasterXor with Delphi RAD Studio</p>
