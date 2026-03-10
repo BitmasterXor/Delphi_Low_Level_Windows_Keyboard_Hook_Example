@@ -48,7 +48,7 @@ Path: `KeyboardHookComponent/Demo/KBHookDemo.dpr`
 1. Open `KeyboardHookComponent/KeyboardHookComponent.dproj` (or `.dpk`) in Delphi.
 2. Build the package.
 3. Install the package from the IDE package manager.
-4. Find `TKeyboardHook` on the `BitmasterXor` component palette tab.
+4. Find `TKeyboardHook` on the `KeyboardHook` component palette tab.
 5. Drop it onto a form and set `Active := True` or call `StartHook`.
 
 ### Option C: Run the component demo
